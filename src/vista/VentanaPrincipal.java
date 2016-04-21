@@ -52,14 +52,17 @@ public class VentanaPrincipal extends JFrame {
 		mnNuevo.setMnemonic('N');
 		mnArchivo.add(mnNuevo);
 		
-		JMenuItem mntmVehiculo = new JMenuItem("Vehiculo");
-		mnNuevo.add(mntmVehiculo);
+		JMenuItem mntmPropietario = new JMenuItem("Propietario");
+		mnNuevo.add(mntmPropietario);
 		
 		JMenuItem mntmRecaudadora = new JMenuItem("Recaudadora");
 		mnNuevo.add(mntmRecaudadora);
 		
-		JMenuItem mntmPropietario = new JMenuItem("Propietario");
-		mnNuevo.add(mntmPropietario);
+		JMenuItem mntmTarjeta = new JMenuItem("Tarjeta");
+		mnNuevo.add(mntmTarjeta);
+		
+		JMenuItem mntmVehiculo = new JMenuItem("Vehiculo");
+		mnNuevo.add(mntmVehiculo);
 		
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mnArchivo.add(mntmSalir);
