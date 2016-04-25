@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import controlador.DBConnection;
+import modelo.DBConnection;
 
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
