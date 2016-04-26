@@ -1,6 +1,6 @@
-package modelo;
+package dto;
 
-public class Recaudadora {
+public class RecaudadoraDTO {
 	public String id;
 	public String nombre;
 	public String direccion;

@@ -1,6 +1,6 @@
-package modelo;
+package dto;
 
-public class Vehiculo {
+public class VehiculoDTO {
 	public String id;
 	public String placas;
 	public String color1;
