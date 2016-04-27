@@ -15,7 +15,7 @@ public class RecaudadoraDTO {
 		
 	}
 
-	public RecaudadoraDTO(String nombre, String direccion, String telefono, String codigoPostal) {
+	public RecaudadoraDTO(String id, String nombre, String direccion, String telefono, String codigoPostal) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;

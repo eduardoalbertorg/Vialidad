@@ -32,7 +32,7 @@ public class VehiculoDTO {
 
 	}
 
-	public VehiculoDTO(String placas, String color1, String mov, String clase, String marca, String color2,
+	public VehiculoDTO(String id, String placas, String color1, String mov, String clase, String marca, String color2,
 			String proced, String tipo, String cc, String submarca, String numeroSerie, String comb, String cilindros,
 			String version, String numeroMotor, String servicio, String puertas, String modelo, String nrpv, String uso,
 			String pasaj) {

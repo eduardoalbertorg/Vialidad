@@ -112,8 +112,7 @@ public class LoginScreen extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				DBConnection conn = new DBConnection();
 				String[] loginInfo = {"username", "password"};
-				try {
-					conn.select(loginInfo, "users");		
+				try {	
 				} catch (Exception e) {
 				
 				}				
