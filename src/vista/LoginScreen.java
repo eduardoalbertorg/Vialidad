@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import modelo.interfaces.InterfaceAcceso;
+
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -24,28 +26,13 @@ public class LoginScreen extends JFrame {
 	private JPasswordField passwordField;
 	private JTextField txtUsername;
 	private JButton btnLogin = new JButton("Login");
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-//					LoginScreen frame = new LoginScreen();
-//					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private InterfaceAcceso interAcceso;
 
 	/**
 	 * Create the frame.
 	 */
-	public LoginScreen() {
-		setVisible(true);
+	public LoginScreen(InterfaceAcceso interAcceso) {
+		this.interAcceso = interAcceso;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 232, 145);
 		contentPane = new JPanel();
@@ -123,6 +110,8 @@ public class LoginScreen extends JFrame {
 		btnClose.setBounds(117, 73, 89, 23);
 		contentPane.add(btnClose);
 		
+		setVisible(true); // Muestra la ventana
+		setLocationRelativeTo(null); // Centra la ventana
 	}
 
 	private void allowLogin() {

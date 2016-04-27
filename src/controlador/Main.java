@@ -1,12 +1,10 @@
 package controlador;
 
-import vista.LoginScreen;
-
 public class Main {
-	private LoginScreen logScreen;
+	private GestionLogin gestionLogin;
 	
 	public Main() {
-		logScreen = new LoginScreen();
+		gestionLogin = new GestionLogin();
 	}
 	
 	public static void main(String[] args) {

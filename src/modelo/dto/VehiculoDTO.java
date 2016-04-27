@@ -1,28 +1,28 @@
 package modelo.dto;
 
 public class VehiculoDTO {
-	public String id;
-	public String placas;
-	public String color1;
-	public String mov;
-	public String clase;
-	public String marca;
-	public String color2;
-	public String proced;
-	public String tipo;
-	public String cc;
-	public String submarca;
-	public String numeroSerie;
-	public String comb;
-	public String cilindros;
-	public String version;
-	public String numeroMotor;
-	public String servicio;
-	public String puertas;
-	public String modelo;
-	public String nrpv;
-	public String uso;
-	public String pasaj;
+	private String id;
+	private String placas;
+	private String color1;
+	private String mov;
+	private String clase;
+	private String marca;
+	private String color2;
+	private String proced;
+	private String tipo;
+	private String cc;
+	private String submarca;
+	private String numeroSerie;
+	private String comb;
+	private String cilindros;
+	private String version;
+	private String numeroMotor;
+	private String servicio;
+	private String puertas;
+	private String modelo;
+	private String nrpv;
+	private String uso;
+	private String pasaj;
 
 	public VehiculoDTO() {
 

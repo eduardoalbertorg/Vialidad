@@ -1,11 +1,11 @@
 package modelo.dto;
 
 public class RecaudadoraDTO {
-	public String id;
-	public String nombre;
-	public String direccion;
-	public String telefono;
-	public String codigoPostal;
+	private String id;
+	private String nombre;
+	private String direccion;
+	private String telefono;
+	private String codigoPostal;
 	
 	public RecaudadoraDTO() {
 		

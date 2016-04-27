@@ -1,12 +1,12 @@
 package modelo.dto;
 
 public class PropietarioDTO {
-	public String id;
-	public String nombre;
-	public String apellido;
-	public String direccion;
-	public String telefono;
-	public String codigoPostal;
+	private String id;
+	private String nombre;
+	private String apellido;
+	private String direccion;
+	private String telefono;
+	private String codigoPostal;
 	
 	public PropietarioDTO() {
 		
