@@ -1,4 +1,4 @@
-package dto;
+package modelo.dto;
 
 public class VehiculoDTO {
 	public String id;

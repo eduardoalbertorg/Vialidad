@@ -1,4 +1,4 @@
-package dao;
+package modelo.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,11 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.Conexion;
-import dto.PropietarioDTO;
-import interfaces.Obligation;
+import modelo.dto.Conexion;
+import modelo.dto.PropietarioDTO;
+import modelo.interfaces.DBQueries;
 
-public class PropietarioDAO implements Obligation<PropietarioDTO>{
+public class PropietarioDAO implements DBQueries<PropietarioDTO>{
 
 	private static final String SQL_INSERT = "INSERT INTO propietarios "
 			+ "(nombre, apellido, direccion, telefono, codigoPostal) "

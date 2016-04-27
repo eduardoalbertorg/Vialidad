@@ -1,4 +1,4 @@
-package dto;
+package modelo.dto;
 
 public class PropietarioDTO {
 	public String id;
