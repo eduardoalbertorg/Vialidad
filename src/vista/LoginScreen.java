@@ -9,8 +9,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import modelo.DBConnection;
-
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -110,7 +108,6 @@ public class LoginScreen extends JFrame {
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				DBConnection conn = new DBConnection();
 				String[] loginInfo = {"username", "password"};
 				try {	
 				} catch (Exception e) {
