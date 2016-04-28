@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class LoginScreen extends JFrame {
@@ -31,7 +32,7 @@ public class LoginScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginScreen(InterfaceAcceso interAcceso) {
+	public LoginScreen(final InterfaceAcceso interAcceso) {
 		this.interAcceso = interAcceso;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 232, 145);
@@ -96,11 +97,12 @@ public class LoginScreen extends JFrame {
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String[] loginInfo = {"username", "password"};
-				try {	
-				} catch (Exception e) {
-				
-				}				
+				String username = txtUsername.getText();
+				String password = String.valueOf(passwordField.getPassword());
+				if (interAcceso.signIn(username, password)) {
+					dispose();
+				}
+				passwordField.setText("");
 			}
 		});
 		btnLogin.setBounds(20, 73, 89, 23);

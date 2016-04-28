@@ -1,5 +1,7 @@
 package modelo.interfaces;
 
+import javax.swing.JFrame;
+
 public interface InterfaceAcceso {
-	public void signIn();
+	public boolean signIn(String username, String password);
 }

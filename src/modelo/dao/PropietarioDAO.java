@@ -11,12 +11,11 @@ import modelo.dto.PropietarioDTO;
 import modelo.interfaces.DBQueries;
 
 public class PropietarioDAO implements DBQueries<PropietarioDTO>{
-
 	private static final String SQL_INSERT = "INSERT INTO propietarios "
 			+ "(nombre, apellido, direccion, telefono, codigoPostal) "
 			+ "VALUES (?, ?, ?, ?, ?)";
 	private static final String SQL_DELETE = "DELETE FROM propietarios WHERE id = ?";
-	private static final String SQL_UPDATE = "UPDATE propietarios SET 2nombre = ?, apellido = ?, "
+	private static final String SQL_UPDATE = "UPDATE propietarios SET nombre = ?, apellido = ?, "
 			+ "direccion = ?, telefono = ?, codigoPostal = ? WHERE id = ?";
 	private static final String SQL_READ = "SELECT * FROM propietarios WHERE id = ?";
 	private static final String SQL_READALL = "SELECT * FROM propietarios";
