@@ -9,16 +9,24 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.GestionTarjetas;
+import modelo.interfaces.InterfaceTarjeta;
+
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.CardLayout;
 
 public class VentanaPrincipal extends JFrame {
-
-	private JPanel contentPane;
-	private JTable tblTarjetasCirculacion;
+	private GestionTarjetas gestionTarjetas;
+	private InterfaceTarjeta interTarjeta;
+	private JPanel pnlPrincipal = new JPanel();
 
 	/**
 	 * Create the frame.
@@ -27,7 +35,7 @@ public class VentanaPrincipal extends JFrame {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent arg0) {
-				
+				gestionTarjetas = new GestionTarjetas();
 			}
 		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,31 +65,27 @@ public class VentanaPrincipal extends JFrame {
 		mnNuevo.add(mntmVehiculo);
 		
 		JMenuItem mntmSalir = new JMenuItem("Salir");
-		mnArchivo.add(mntmSalir);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 752, 341);
-		contentPane.add(scrollPane);
-		
-		tblTarjetasCirculacion = new JTable();
-		tblTarjetasCirculacion.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ID", "Propietario", "Placas", "Marca", "Submarca", "Modelo", "Color"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, String.class, String.class, String.class, String.class, String.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
+		mntmSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int option = JOptionPane.showConfirmDialog(null, "¿Estás seguro?");
+				if (option == JOptionPane.OK_OPTION) {
+					System.exit(0);
+				}
 			}
 		});
-		scrollPane.setViewportView(tblTarjetasCirculacion);
+		mnArchivo.add(mntmSalir);
+		getContentPane().setLayout(null);
+		pnlPrincipal.setBounds(0, 0, 772, 363);
+		
+		getContentPane().add(pnlPrincipal);
+	}	
+	
+	public JPanel getPanel() {
+		return pnlPrincipal;
 	}
+	
+	public void setPanel(JPanel panel) {
+		this.pnlPrincipal = panel;
+	}
+	
 }

@@ -10,8 +10,9 @@ public class Main {
 	public static VentanaPrincipal ventanaPrincipal;
 	
 	public Main() {
-		gestionLogin = new GestionLogin();
 		ventanaPrincipal = new VentanaPrincipal();
+		ventanaPrincipal.setVisible(true);
+		gestionLogin = new GestionLogin();		
 	}
 	
 	public static void main(String[] args) {

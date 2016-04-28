@@ -116,7 +116,7 @@ public class NuevoPropietario extends JFrame {
 		lblPropietario = new JLabel("Propietario");
 		lblPropietario.setForeground(Color.WHITE);
 		lblPropietario.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblPropietario.setBounds(103, 21, 120, 14);
+		lblPropietario.setBounds(103, 21, 120, 20);
 		contentPane.add(lblPropietario);
 	}
 }
