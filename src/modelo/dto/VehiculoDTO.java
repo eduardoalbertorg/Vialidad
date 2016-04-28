@@ -29,7 +29,7 @@ public class VehiculoDTO {
 	}
 
 	public VehiculoDTO(String id) {
-
+		this.id = id;
 	}
 
 	public VehiculoDTO(String id, String placas, String color1, String mov, String clase, String marca, String color2,

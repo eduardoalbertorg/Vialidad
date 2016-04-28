@@ -93,6 +93,7 @@ public class LoginScreen extends JFrame {
 		txtUsername.setBounds(107, 11, 100, 20);
 		contentPane.add(txtUsername);
 		txtUsername.setColumns(10);
+		btnLogin.setMnemonic('L');
 		btnLogin.setEnabled(false);
 		
 		btnLogin.addActionListener(new ActionListener() {
@@ -109,6 +110,12 @@ public class LoginScreen extends JFrame {
 		contentPane.add(btnLogin);
 		
 		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnClose.setMnemonic('C');
 		btnClose.setBounds(117, 73, 89, 23);
 		contentPane.add(btnClose);
 		

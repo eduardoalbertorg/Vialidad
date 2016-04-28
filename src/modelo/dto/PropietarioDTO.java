@@ -13,7 +13,7 @@ public class PropietarioDTO {
 	}
 	
 	public PropietarioDTO(String id) {
-		
+		this.id = id;
 	}
 	
 	public PropietarioDTO(String id, String nombre, String apellido, String direccion, String telefono,

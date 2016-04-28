@@ -10,7 +10,7 @@ public class UserDTO {
 	}
 	
 	public UserDTO(String id) {
-		
+		this.id = id;
 	}
 	
 	public UserDTO(String id, String username, String password) {

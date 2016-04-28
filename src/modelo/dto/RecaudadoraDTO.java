@@ -12,7 +12,7 @@ public class RecaudadoraDTO {
 	}
 	
 	public RecaudadoraDTO(String id) {
-		
+		this.id = id;
 	}
 
 	public RecaudadoraDTO(String id, String nombre, String direccion, String telefono, String codigoPostal) {
