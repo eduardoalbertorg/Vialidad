@@ -5,14 +5,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.interfaces.InterfaceTarjeta;
+import java.awt.GridLayout;
+
 public class TarjetasPnl extends JPanel {
 	private JTable tblTarjetasCirculacion;
+	private InterfaceTarjeta interTarjeta;
 	
-	public TarjetasPnl() {
-		setLayout(null);
+	public TarjetasPnl(InterfaceTarjeta interTarjeta) {
+		this.interTarjeta = interTarjeta;
+		setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 752, 341);
 		
 		tblTarjetasCirculacion = new JTable();
 		tblTarjetasCirculacion.setModel(new DefaultTableModel(
@@ -32,5 +36,8 @@ public class TarjetasPnl extends JPanel {
 		scrollPane.setViewportView(tblTarjetasCirculacion);
 		this.add(scrollPane);
 		this.setBounds(0, 0, 752, 341);
+		setVisible(true);
 	}
+	
+	
 }

@@ -12,7 +12,7 @@ public class Main {
 	public Main() {
 		ventanaPrincipal = new VentanaPrincipal();
 		ventanaPrincipal.setVisible(true);
-		gestionLogin = new GestionLogin();		
+		gestionLogin = new GestionLogin();	
 	}
 	
 	public static void main(String[] args) {

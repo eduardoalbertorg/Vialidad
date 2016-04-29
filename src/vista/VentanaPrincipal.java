@@ -1,43 +1,29 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import javax.swing.table.DefaultTableModel;
 
 import controlador.GestionTarjetas;
-import modelo.interfaces.InterfaceTarjeta;
 
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
 import java.awt.CardLayout;
 
 public class VentanaPrincipal extends JFrame {
 	private GestionTarjetas gestionTarjetas;
-	private InterfaceTarjeta interTarjeta;
-	private JPanel pnlPrincipal = new JPanel();
-
+	private JPanel mainPnl;
+	private JMenu mnNuevo;
 	/**
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
-		addComponentListener(new ComponentAdapter() {
-			@Override
-			public void componentShown(ComponentEvent arg0) {
-				gestionTarjetas = new GestionTarjetas();
-			}
-		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 788, 423);
 		
@@ -48,7 +34,8 @@ public class VentanaPrincipal extends JFrame {
 		mnArchivo.setMnemonic('A');
 		menuBar.add(mnArchivo);
 		
-		JMenu mnNuevo = new JMenu("Nuevo");
+		mnNuevo = new JMenu("Nuevo");
+		mnNuevo.setEnabled(false);
 		mnNuevo.setMnemonic('N');
 		mnArchivo.add(mnNuevo);
 		
@@ -75,17 +62,20 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnArchivo.add(mntmSalir);
 		getContentPane().setLayout(null);
-		pnlPrincipal.setBounds(0, 0, 772, 363);
-		
-		getContentPane().add(pnlPrincipal);
-	}	
-	
-	public JPanel getPanel() {
-		return pnlPrincipal;
 	}
 	
-	public void setPanel(JPanel panel) {
-		this.pnlPrincipal = panel;
+	public void loginSuccess() {
+		mnNuevo.setEnabled(true);
+		getContentPane().setLayout(new CardLayout());
+		gestionTarjetas = new GestionTarjetas();
+	}
+	
+	public JPanel getMainPnl() {
+		return mainPnl;
+	}
+	
+	public void setMainPnl(JPanel panel) {
+		this.mainPnl = panel;
 	}
 	
 }
