@@ -1,7 +1,7 @@
 package modelo.dto;
 
 public class UserDTO {
-	private String id;
+	private int id;
 	private String username;
 	private String password;
 	
@@ -9,22 +9,22 @@ public class UserDTO {
 		
 	}
 	
-	public UserDTO(String id) {
+	public UserDTO(int id) {
 		this.id = id;
 	}
 	
-	public UserDTO(String id, String username, String password) {
+	public UserDTO(int id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

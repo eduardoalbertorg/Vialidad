@@ -2,17 +2,17 @@ package controlador;
 
 import javax.swing.JOptionPane;
 
-import modelo.dao.UserDAO;
+import modelo.dao.UsuarioDAO;
 import modelo.interfaces.InterfaceAcceso;
 import vista.LoginScreen;
 
 public class GestionLogin implements InterfaceAcceso {
 	public static LoginScreen log;
-	private UserDAO user;
+	private UsuarioDAO user;
 	
 	public GestionLogin() {
 		log = new LoginScreen(this);
-		user = new UserDAO();
+		user = new UsuarioDAO();
 		Main.ventanaPrincipal.add(log);
 	}
 

@@ -1,7 +1,7 @@
 package modelo.dto;
 
 public class RecaudadoraDTO {
-	private String id;
+	private int id;
 	private String nombre;
 	private String direccion;
 	private String telefono;
@@ -11,22 +11,22 @@ public class RecaudadoraDTO {
 		
 	}
 	
-	public RecaudadoraDTO(String id) {
+	public RecaudadoraDTO(int id) {
 		this.id = id;
 	}
 
-	public RecaudadoraDTO(String id, String nombre, String direccion, String telefono, String codigoPostal) {
+	public RecaudadoraDTO(int id, String nombre, String direccion, String telefono, String codigoPostal) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.codigoPostal = codigoPostal;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

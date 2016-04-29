@@ -1,7 +1,7 @@
 package modelo.dto;
 
 public class PropietarioDTO {
-	private String id;
+	private int id;
 	private String nombre;
 	private String apellido;
 	private String direccion;
@@ -12,11 +12,11 @@ public class PropietarioDTO {
 		
 	}
 	
-	public PropietarioDTO(String id) {
+	public PropietarioDTO(int id) {
 		this.id = id;
 	}
 	
-	public PropietarioDTO(String id, String nombre, String apellido, String direccion, String telefono,
+	public PropietarioDTO(int id, String nombre, String apellido, String direccion, String telefono,
 			String codigoPostal) {
 		super();
 		this.id = id;
@@ -27,11 +27,11 @@ public class PropietarioDTO {
 		this.codigoPostal = codigoPostal;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

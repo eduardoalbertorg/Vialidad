@@ -71,7 +71,7 @@ public class PropietarioDAO implements DBQueries<PropietarioDTO>{
 			ps.setString(3, t.getDireccion());
 			ps.setString(4, t.getTelefono());
 			ps.setString(5, t.getCodigoPostal());
-			ps.setString(6, t.getId());
+			ps.setInt(6, t.getId());
 			if (ps.executeUpdate() > 0) {
 				return true;
 			}
@@ -94,7 +94,7 @@ public class PropietarioDAO implements DBQueries<PropietarioDTO>{
 			ps.setString(1, key.toString());
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				p = new PropietarioDTO(rs.getString(1), rs.getString(2), rs.getString(3),
+				p = new PropietarioDTO(rs.getInt(1), rs.getString(2), rs.getString(3),
 						rs.getString(4), rs.getString(5), rs.getString(6));
 			}
 			//return p;
@@ -116,7 +116,7 @@ public class PropietarioDAO implements DBQueries<PropietarioDTO>{
 			ps = cnn.getConnection().prepareStatement(SQL_READALL);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				propietarios.add(new PropietarioDTO(rs.getString(1), rs.getString(2), rs.getString(3),
+				propietarios.add(new PropietarioDTO(rs.getInt(1), rs.getString(2), rs.getString(3),
 						rs.getString(4), rs.getString(5), rs.getString(6)));
 			}
 		} catch (SQLException e) {

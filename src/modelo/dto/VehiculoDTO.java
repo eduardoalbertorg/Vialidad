@@ -1,7 +1,7 @@
 package modelo.dto;
 
 public class VehiculoDTO {
-	private String id;
+	private int id;
 	private String placas;
 	private String color1;
 	private String mov;
@@ -23,19 +23,25 @@ public class VehiculoDTO {
 	private String nrpv;
 	private String uso;
 	private String pasaj;
+	private int idPropietario;
+	private int idRecaudadora;
+//	private PropietarioDTO propietario;
+//	private RecaudadoraDTO recaudadora;
 
 	public VehiculoDTO() {
 
 	}
 
-	public VehiculoDTO(String id) {
+	public VehiculoDTO(int id) {
 		this.id = id;
 	}
 
-	public VehiculoDTO(String id, String placas, String color1, String mov, String clase, String marca, String color2,
+	public VehiculoDTO(int id, String placas, String color1, String mov, String clase, String marca, String color2,
 			String proced, String tipo, String cc, String submarca, String numeroSerie, String comb, String cilindros,
 			String version, String numeroMotor, String servicio, String puertas, String modelo, String nrpv, String uso,
-			String pasaj) {
+			String pasaj, int idPropietario, int idRecaudadora) {
+		super();
+		this.id = id;
 		this.placas = placas;
 		this.color1 = color1;
 		this.mov = mov;
@@ -57,13 +63,15 @@ public class VehiculoDTO {
 		this.nrpv = nrpv;
 		this.uso = uso;
 		this.pasaj = pasaj;
+		this.idPropietario = idPropietario;
+		this.idRecaudadora = idRecaudadora;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -233,6 +241,22 @@ public class VehiculoDTO {
 
 	public void setPasaj(String pasaj) {
 		this.pasaj = pasaj;
+	}
+
+	public int getIdPropietario() {
+		return idPropietario;
+	}
+
+	public void setIdPropietario(int idPropietario) {
+		this.idPropietario = idPropietario;
+	}
+
+	public int getIdRecaudadora() {
+		return idRecaudadora;
+	}
+
+	public void setIdRecaudadora(int idRecaudadora) {
+		this.idRecaudadora = idRecaudadora;
 	}
 
 }

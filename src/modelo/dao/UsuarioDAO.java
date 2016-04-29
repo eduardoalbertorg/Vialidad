@@ -10,16 +10,16 @@ import modelo.dto.Conexion;
 import modelo.dto.UserDTO;
 import modelo.interfaces.DBQueries;
 
-public class UserDAO implements DBQueries<UserDTO>{
-	private static final String SQL_INSERT = "INSERT INTO users "
+public class UsuarioDAO implements DBQueries<UserDTO>{
+	private static final String SQL_INSERT = "INSERT INTO usuarios "
 			+ "(username, password) "
 			+ "VALUES (?, ?)";
-	private static final String SQL_DELETE = "DELETE FROM users WHERE id = ?";
-	private static final String SQL_UPDATE = "UPDATE users SET username = ?, password = ? "
+	private static final String SQL_DELETE = "DELETE FROM usuarios WHERE id = ?";
+	private static final String SQL_UPDATE = "UPDATE usuarios SET username = ?, password = ? "
 			+ "WHERE id = ?";
-	private static final String SQL_READ = "SELECT * FROM users WHERE id = ?";
-	private static final String SQL_READALL = "SELECT * FROM users";
-	private static final String SQL_READWHERE = "SELECT * FROM users WHERE username = ? AND password = ?";
+	private static final String SQL_READ = "SELECT * FROM usuarios WHERE id = ?";
+	private static final String SQL_READALL = "SELECT * FROM usuarios";
+	private static final String SQL_READWHERE = "SELECT * FROM usuarios WHERE username = ? AND password = ?";
 	private static final Conexion cnn = Conexion.saberEstado();
 	
 	@Override
@@ -66,7 +66,7 @@ public class UserDAO implements DBQueries<UserDTO>{
 			ps = cnn.getConnection().prepareStatement(SQL_UPDATE);
 			ps.setString(1, t.getUsername());
 			ps.setString(2, t.getPassword());
-			ps.setString(3, t.getId());
+			ps.setInt(3, t.getId());
 			if (ps.executeUpdate() > 0) {
 				return true;
 			}
@@ -89,7 +89,7 @@ public class UserDAO implements DBQueries<UserDTO>{
 			ps.setString(1, key.toString());
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				u = new UserDTO(rs.getString(1), rs.getString(2), rs.getString(3));
+				u = new UserDTO(rs.getInt(1), rs.getString(2), rs.getString(3));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -109,7 +109,7 @@ public class UserDAO implements DBQueries<UserDTO>{
 			ps = cnn.getConnection().prepareStatement(SQL_READALL);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				usuarios.add(new UserDTO(rs.getString(1), rs.getString(2), rs.getString(3)));
+				usuarios.add(new UserDTO(rs.getInt(1), rs.getString(2), rs.getString(3)));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -130,7 +130,7 @@ public class UserDAO implements DBQueries<UserDTO>{
 			ps.setString(2, password);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				u = new UserDTO(rs.getString(1), rs.getString(2), rs.getString(3));
+				u = new UserDTO(rs.getInt(1), rs.getString(2), rs.getString(3));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
