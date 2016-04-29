@@ -6,19 +6,17 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import controlador.GestionPropietarios;
 import controlador.GestionTarjetas;
 
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
-import java.awt.GridLayout;
 import java.awt.CardLayout;
 
 public class VentanaPrincipal extends JFrame {
 	private GestionTarjetas gestionTarjetas;
-	private JPanel mainPnl;
+	private GestionPropietarios gestionPropietarios; 
 	private JMenu mnNuevo;
 	/**
 	 * Create the frame.
@@ -40,6 +38,11 @@ public class VentanaPrincipal extends JFrame {
 		mnArchivo.add(mnNuevo);
 		
 		JMenuItem mntmPropietario = new JMenuItem("Propietario");
+		mntmPropietario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gestionPropietarios = new GestionPropietarios();
+			}
+		});
 		mnNuevo.add(mntmPropietario);
 		
 		JMenuItem mntmRecaudadora = new JMenuItem("Recaudadora");
@@ -68,14 +71,6 @@ public class VentanaPrincipal extends JFrame {
 		mnNuevo.setEnabled(true);
 		getContentPane().setLayout(new CardLayout());
 		gestionTarjetas = new GestionTarjetas();
-	}
-	
-	public JPanel getMainPnl() {
-		return mainPnl;
-	}
-	
-	public void setMainPnl(JPanel panel) {
-		this.mainPnl = panel;
 	}
 	
 }
