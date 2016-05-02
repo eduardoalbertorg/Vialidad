@@ -14,6 +14,14 @@ public class RecaudadoraDTO {
 	public RecaudadoraDTO(int id) {
 		this.id = id;
 	}
+	
+	public RecaudadoraDTO(String nombre, String direccion, String telefono, String codigoPostal) {
+		super();
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.codigoPostal = codigoPostal;
+	}
 
 	public RecaudadoraDTO(int id, String nombre, String direccion, String telefono, String codigoPostal) {
 		this.nombre = nombre;

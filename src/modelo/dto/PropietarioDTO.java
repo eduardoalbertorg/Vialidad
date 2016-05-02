@@ -16,6 +16,15 @@ public class PropietarioDTO {
 		this.id = id;
 	}
 	
+	public PropietarioDTO(String nombre, String apellido, String direccion, String telefono, String codigoPostal) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.codigoPostal = codigoPostal;
+	}
+
 	public PropietarioDTO(int id, String nombre, String apellido, String direccion, String telefono,
 			String codigoPostal) {
 		super();

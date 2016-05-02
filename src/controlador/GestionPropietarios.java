@@ -6,17 +6,17 @@ import java.util.List;
 import modelo.dao.PropietarioDAO;
 import modelo.dto.PropietarioDTO;
 import modelo.interfaces.InterfacePropietario;
-import vista.NuevoPropietarioFrm;
+import vista.AltaPropietario;
 
 public class GestionPropietarios implements InterfacePropietario{
 	private PropietarioDAO propietarioDAO;
-	private NuevoPropietarioFrm nuevoPropietarioScreen;
+	private AltaPropietario altaPropietario;
 	
 	public GestionPropietarios() {
 		propietarioDAO = new PropietarioDAO();
-		nuevoPropietarioScreen = new NuevoPropietarioFrm(this);
-		nuevoPropietarioScreen.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-		nuevoPropietarioScreen.setVisible(true);
+		altaPropietario = new AltaPropietario(this);
+		altaPropietario.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		altaPropietario.setVisible(true);
 	}
 	
 	public List<PropietarioDTO> getPropietarios() {

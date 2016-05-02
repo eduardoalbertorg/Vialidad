@@ -37,6 +37,19 @@ public class TarjetaDTO {
 		this.idPropietario = idPropietario;
 	}
 
+	public TarjetaDTO(int id, Date date, int idRecaudadora, int idVehiculo, int idPropietario,
+			RecaudadoraDTO recaudadora, VehiculoDTO vehiculo, PropietarioDTO propietario) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.idRecaudadora = idRecaudadora;
+		this.idVehiculo = idVehiculo;
+		this.idPropietario = idPropietario;
+		this.recaudadora = recaudadora;
+		this.vehiculo = vehiculo;
+		this.propietario = propietario;
+	}
+
 	public int getId() {
 		return id;
 	}

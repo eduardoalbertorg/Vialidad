@@ -5,43 +5,46 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
+import modelo.dto.PropietarioDTO;
 import modelo.interfaces.InterfacePropietario;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JFormattedTextField;
 
-public class NuevoPropietarioFrm extends JDialog {
+public class AltaPropietario extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtNombre;
 	private JTextField txtApellido;
 	private JTextField txtDireccion;
-	private JFormattedTextField ftxtTelefono;
-	private JFormattedTextField ftxtCodigoPostal;
+	private JFormattedTextField fTxtTelefono;
+	private JFormattedTextField fTxtCodigoPostal;
 	
 	private InterfacePropietario interPropietario;
+	private PropietarioDTO propietario;
 	
 	/**
 	 * Create the dialog.
 	 */
-	public NuevoPropietarioFrm(InterfacePropietario interPropietario) {
+	public AltaPropietario(final InterfacePropietario interPropietario) {
 		this.interPropietario = interPropietario;
 		try {
 			final MaskFormatter mascaraTelefono = new MaskFormatter("(##)####-##");
 			final MaskFormatter mascaraCP = new MaskFormatter("#####");
 			mascaraTelefono.setPlaceholderCharacter(' ');
 			mascaraCP.setPlaceholderCharacter(' ');
-			ftxtTelefono = new JFormattedTextField(mascaraTelefono);
-			ftxtCodigoPostal = new JFormattedTextField(mascaraCP);
+			fTxtTelefono = new JFormattedTextField(mascaraTelefono);
+			fTxtCodigoPostal = new JFormattedTextField(mascaraCP);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -108,11 +111,11 @@ public class NuevoPropietarioFrm extends JDialog {
 			contentPanel.add(label);
 		}
 		
-		ftxtTelefono.setBounds(103, 135, 82, 20);
-		contentPanel.add(ftxtTelefono);
+		fTxtTelefono.setBounds(103, 135, 82, 20);
+		contentPanel.add(fTxtTelefono);
 		
-		ftxtCodigoPostal.setBounds(103, 163, 82, 20);
-		contentPanel.add(ftxtCodigoPostal);
+		fTxtCodigoPostal.setBounds(103, 163, 82, 20);
+		contentPanel.add(fTxtCodigoPostal);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(SystemColor.textHighlight);
@@ -123,7 +126,16 @@ public class NuevoPropietarioFrm extends JDialog {
 				btnCrear.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (validateFields()) {
-							
+							propietario = new PropietarioDTO(
+									txtNombre.getText(), txtApellido.getText(),
+									txtDireccion.getText(), fTxtTelefono.getText(),
+									fTxtCodigoPostal.getText());
+							if (interPropietario.createPropietario(propietario)) {
+								JOptionPane.showMessageDialog(null, "Persona registrada.", "Alta propietario", JOptionPane.INFORMATION_MESSAGE);
+								dispose();
+							}
+						} else {
+							JOptionPane.showMessageDialog(null, "Lllene todos los campos.", "Alta propietario", JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
 				});
@@ -148,8 +160,8 @@ public class NuevoPropietarioFrm extends JDialog {
 	
 	public boolean validateFields() {
 		if (txtNombre.getText().equals("") || txtApellido.getText().equals("")
-			|| txtDireccion.getText().equals("") || ftxtTelefono.getText().equals("")
-			|| ftxtCodigoPostal.getText().equals("")) {
+			|| txtDireccion.getText().equals("") || fTxtTelefono.getText().equals("")
+			|| fTxtCodigoPostal.getText().equals("")) {
 			return false;
 		}
 		return true;
