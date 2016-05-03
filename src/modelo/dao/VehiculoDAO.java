@@ -18,13 +18,13 @@ public class VehiculoDAO implements DBQueries<VehiculoDTO> {
 			+ "servicio, puertas, modelo, nrpv, uso, pasaj, idPropietario, idRecaudadora) "
 			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
 			+ "?, ?)";
-	private static final String SQL_DELETE = "DELETE FROM vehiculos WHERE id = ?";
+	private static final String SQL_DELETE = "DELETE FROM vehiculos WHERE idVehiculo = ?";
 	private static final String SQL_UPDATE = "UPDATE vehiculos SET "
 			+ "placas = ?, color1 = ?, mov = ?, clase = ?, marca = ?, color2 = ?, proced = ?, tipo = ?, "
 			+ "cc = ?, submarca = ?, numeroSerie = ?, comb = ?, cilindros = ?, version = ?, numeroMotor = ?, "
 			+ "servicio = ?, puertas = ?, modelo = ?, nrpv = ?, uso = ?, pasaj = ?, idPropietario = ?, idRecaudadora = ? "
-			+ "WHERE id = ?";
-	private static final String SQL_READ = "SELECT * FROM vehiculos WHERE id = ?";
+			+ "WHERE idVehiculo = ?";
+	private static final String SQL_READ = "SELECT * FROM vehiculos WHERE idVehiculo = ?";
 	private static final String SQL_READALL = "SELECT * FROM vehiculos";
 	private static final Conexion cnn = Conexion.saberEstado();
 	

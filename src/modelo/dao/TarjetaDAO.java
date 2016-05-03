@@ -17,10 +17,10 @@ public class TarjetaDAO implements DBQueries<TarjetaDTO> {
 	private static final String SQL_INSERT = "INSERT INTO tarjetas "
 			+ "(fecha, idRecaudadora, idVehiculo, idPropietario) "
 			+ "VALUES (?, ?, ?, ?)";
-	private static final String SQL_DELETE = "DELETE FROM tarjetas WHERE id = ?";
+	private static final String SQL_DELETE = "DELETE FROM tarjetas WHERE idTarjeta = ?";
 	private static final String SQL_UPDATE = "UPDATE tarjetas SET fecha= ?, "
-			+ "idRecaudadora = ?, idVehiculo = ?, idPropietario = ? WHERE id = ?";
-	private static final String SQL_READ = "SELECT * FROM tarjetas WHERE id = ?";
+			+ "idRecaudadora = ?, idVehiculo = ?, idPropietario = ? WHERE idTarjeta = ?";
+	private static final String SQL_READ = "SELECT * FROM tarjetas WHERE idTarjeta = ?";
 	private static final String SQL_READALL = "SELECT tarjetas.idTarjeta, recaudadoras.nombre,"
 			+ " propietarios.nombre, propietarios.apellido, vehiculos.placas, vehiculos.marca, vehiculos.submarca,"
 			+ " vehiculos.modelo, vehiculos.color1 FROM tarjetas, recaudadoras, vehiculos, propietarios"
@@ -102,7 +102,6 @@ public class TarjetaDAO implements DBQueries<TarjetaDTO> {
 				t = new TarjetaDTO(rs.getInt(1), rs.getDate(2), rs.getInt(3),
 						rs.getInt(4), rs.getInt(5));
 			}
-			//return p;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

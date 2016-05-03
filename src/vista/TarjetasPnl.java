@@ -18,6 +18,15 @@ import modelo.dto.RecaudadoraDTO;
 import modelo.dto.TarjetaDTO;
 import modelo.dto.VehiculoDTO;
 import modelo.interfaces.InterfaceTarjeta;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TarjetasPnl extends JPanel {
 	private JTable tblTarjetasCirculacion;
@@ -27,13 +36,71 @@ public class TarjetasPnl extends JPanel {
 	private PropietarioDTO propietario;
 	private RecaudadoraDTO recaudadora;
 	private VehiculoDTO vehiculo;
+	private JTextField txtBuscar;
+	private JRadioButton rdbtnPlacas;
+	private JRadioButton rdbtnPropietario;
 	
 	
 	@SuppressWarnings("serial")
 	public TarjetasPnl(final InterfaceTarjeta interTarjeta) {
 		this.interTarjeta = interTarjeta;
-		setLayout(new GridLayout(0, 1, 0, 0));
+		setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		add(panel, BorderLayout.NORTH);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		rdbtnPropietario = new JRadioButton("Propietario");
+		rdbtnPropietario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rdbtnPropietario.setSelected(true);
+				rdbtnPlacas.setSelected(false);
+			}
+		});
+		
+		rdbtnPlacas = new JRadioButton("Placas");
+		rdbtnPlacas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rdbtnPropietario.setSelected(false);
+				rdbtnPlacas.setSelected(true);
+			}
+		});
+		panel.add(rdbtnPlacas);
+		panel.add(rdbtnPropietario);
+		
+		JLabel lblBuscar = new JLabel("Buscar:");
+		panel.add(lblBuscar);
+		
+		txtBuscar = new JTextField();
+		panel.add(txtBuscar);
+		txtBuscar.setColumns(20);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String valorABuscar = txtBuscar.getText();
+				if (valorABuscar.equals("")) {
+					
+				}
+			}
+		});
+		btnBuscar.setMnemonic('b');
+		panel.add(btnBuscar);
+		
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				// Limpiar
+				
+			}
+		});
+		btnLimpiar.setMnemonic('l');
+		panel.add(btnLimpiar);
+		this.setBounds(0, 0, 752, 341);
 		JScrollPane scrollPane = new JScrollPane();
+		add(scrollPane, BorderLayout.CENTER);
 		
 		tblTarjetasCirculacion = new JTable();
 		tblTarjetasCirculacion.addMouseListener(new MouseAdapter() {
@@ -42,15 +109,17 @@ public class TarjetasPnl extends JPanel {
 				if (e.getClickCount() == 2) {
 					JTable valorEnTabla = (JTable)e.getSource();
 					int row = valorEnTabla.getSelectedRow();
-					int column = valorEnTabla.getSelectedColumn();
-					int idTarjeta = (int)valorEnTabla.getValueAt(row, column);
+					int idTarjeta = (int)valorEnTabla.getValueAt(row, 0);
+					TarjetaDTO tarjeta = new TarjetaDTO();
 					PropietarioDAO propietarioDAO = new PropietarioDAO();
 					RecaudadoraDAO recaudadoraDAO = new RecaudadoraDAO();
 					VehiculoDAO vehiculoDAO = new VehiculoDAO();
-					propietario = interTarjeta.getTarjeta(idTarjeta).getPropietario();
-					recaudadora = interTarjeta.getTarjeta(idTarjeta).getRecaudadora();
-					vehiculo = interTarjeta.getTarjeta(idTarjeta).getVehiculo();
-					tarjetaCirculacion = new TarjetaCirculacion(propietario, recaudadora, vehiculo);
+					tarjeta = interTarjeta.getTarjeta(idTarjeta);
+					
+					propietario = propietarioDAO.read(tarjeta.getIdPropietario());
+					recaudadora = recaudadoraDAO.read(tarjeta.getIdRecaudadora());
+					vehiculo = vehiculoDAO.read(tarjeta.getIdVehiculo());
+					tarjetaCirculacion = new TarjetaCirculacion(propietario, recaudadora, vehiculo, tarjeta);
 					tarjetaCirculacion.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 					tarjetaCirculacion.setVisible(true);
 				}
@@ -78,8 +147,6 @@ public class TarjetasPnl extends JPanel {
 		});
 		tblTarjetasCirculacion.getColumnModel().getColumn(2).setPreferredWidth(106);
 		scrollPane.setViewportView(tblTarjetasCirculacion);
-		this.add(scrollPane);
-		this.setBounds(0, 0, 752, 341);
 		modelo = (DefaultTableModel) tblTarjetasCirculacion.getModel();
 		updateTable();
 		setVisible(true);

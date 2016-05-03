@@ -14,10 +14,10 @@ public class PropietarioDAO implements DBQueries<PropietarioDTO> {
 	private static final String SQL_INSERT = "INSERT INTO propietarios "
 			+ "(nombre, apellido, direccion, telefono, codigoPostal) "
 			+ "VALUES (?, ?, ?, ?, ?)";
-	private static final String SQL_DELETE = "DELETE FROM propietarios WHERE id = ?";
+	private static final String SQL_DELETE = "DELETE FROM propietarios WHERE idPropietario = ?";
 	private static final String SQL_UPDATE = "UPDATE propietarios SET nombre = ?, apellido = ?, "
-			+ "direccion = ?, telefono = ?, codigoPostal = ? WHERE id = ?";
-	private static final String SQL_READ = "SELECT * FROM propietarios WHERE id = ?";
+			+ "direccion = ?, telefono = ?, codigoPostal = ? WHERE idPropietario = ?";
+	private static final String SQL_READ = "SELECT * FROM propietarios WHERE idPropietario = ?";
 	private static final String SQL_READALL = "SELECT * FROM propietarios";
 	private static final Conexion cnn = Conexion.saberEstado();
 	
