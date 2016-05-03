@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import modelo.dao.PropietarioDAO;
 import modelo.dao.RecaudadoraDAO;
+import modelo.dao.VehiculoDAO;
 import modelo.dto.PropietarioDTO;
 import modelo.dto.RecaudadoraDTO;
 import modelo.dto.TarjetaDTO;
@@ -45,8 +46,10 @@ public class TarjetasPnl extends JPanel {
 					int idTarjeta = (int)valorEnTabla.getValueAt(row, column);
 					PropietarioDAO propietarioDAO = new PropietarioDAO();
 					RecaudadoraDAO recaudadoraDAO = new RecaudadoraDAO();
-					//VehiculoDAO vehiculoDAO = new VehiculoDAO();
+					VehiculoDAO vehiculoDAO = new VehiculoDAO();
 					propietario = interTarjeta.getTarjeta(idTarjeta).getPropietario();
+					recaudadora = interTarjeta.getTarjeta(idTarjeta).getRecaudadora();
+					vehiculo = interTarjeta.getTarjeta(idTarjeta).getVehiculo();
 					tarjetaCirculacion = new TarjetaCirculacion(propietario, recaudadora, vehiculo);
 					tarjetaCirculacion.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 					tarjetaCirculacion.setVisible(true);
